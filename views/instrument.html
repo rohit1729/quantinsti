@@ -1,0 +1,43 @@
+<html lang='en'>
+  <head>
+    <base href='/' target='_self'>
+    <script src='/javascripts/angular.min.js'></script>
+    <script src='/javascripts/material.min.js'></script>
+    <script type='text/javascript' src='/javascripts/angular-route.min.js'></script>
+    <script src='/javascripts/app.js'></script>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/material.min.css'>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
+  </head>
+  <body ng-app='myapp'>
+    <div ng-controller='InstrumentController' class='center-container'>
+
+      <div id='snackbar' class='mdl-js-snackbar mdl-snackbar'>
+        <div class='mdl-snackbar__text'></div>
+        <button class='mdl-snackbar__action' type='button'></button>
+      </div>
+
+      <div class='demo-card-wide mdl-card mdl-shadow--2dp instrument-card'>
+        <div class='mdl-card__title'>
+          <h2 class='mdl-card__title-text' ng-bind='response.instrument.name'></h2>
+        </div>
+        <div class='mdl-card__supporting-text'>
+          <span id='instrument-id' ng-bind='response.instrument.id'></span>
+          <span id='instrument-position' ng-bind='response.instrument.position'></span>
+        </div>
+        <div class='mdl-card__actions mdl-card--border'>
+          <span>TRANSACTIONS</span>
+          <ul class='mdl-list'>
+            <li ng-repeat='transaction in response.transactions' class='mdl-list__item'>
+              <div class='demo-card-wide mdl-card mdl-shadow--2dp instrument-list-item mdl-js-ripple-effect'>
+                <div class='mdl-card__supporting-text'>
+                  <span class='mdl-chip mdl-chip__text instrument-list-item-id' ng-bind='action(transaction)' ng-class='{"buy": transaction.action == 1, "sell": transaction.action == 2}'></span>
+                  <span class='instrument-list-item-position' ng-bind='transaction.quantity'></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<html lang='en'>
+  <head>
+    <base href='/'>
+    <script src='/javascripts/angular.min.js'></script>
+    <script type='text/javascript' src='/javascripts/angular-route.min.js'></script>
+    <script src='/javascripts/material.min.js'></script>
+    <script src='/javascripts/app.js'></script>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/material.min.css'>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
+  </head>
+  <body ng-app='myapp'>
+    <div ng-controller='InstrumentsController' class='center-container'>
+        <div class='transaction-form'>
+          <div class='mdl-textfield mdl-js-textfield transaction-field'>
+            <textarea class='mdl-textfield__input' type='text' rows= '3' ng-model='transaction' id='transaction-text-area' ></textarea>
+            <label class='mdl-textfield__label' for='transaction-text-area' ng-bing='transaction'>Enter new Transaction...</label>
+          </div>
+
+          <button class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent transaction-submit' ng-click='addTransaction()'>
+              SUBMIT
+          </button>
+        </div>
+
+        <h2>{{title}}</h2>
+        <ul class='mdl-list'>
+          <li ng-repeat='instrument in instruments' class='mdl-list__item'>
+            <a href='/instruments/{{instrument.id}}'>
+              <div class='demo-card-wide mdl-card mdl-shadow--2dp instrument-list-item mdl-js-ripple-effect'>
+                <div class='mdl-card__supporting-text'>
+                  <span class='instrument-list-item-id'>{{instrument.id}}</span>
+                  <span>{{instrument.name}}</span>
+                  <span class='instrument-list-item-position'>{{instrument.position}}</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <button class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent instrument-load' ng-click='loadInstruments("load")'>
+          LOAD MORE
+        </button>
+
+        <div id='snackbar' class='mdl-js-snackbar mdl-snackbar'>
+          <div class='mdl-snackbar__text'></div>
+          <button class='mdl-snackbar__action' type='button'></button>
+        </div>
+    </div>
+  </body>
+</html>

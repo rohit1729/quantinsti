@@ -1,0 +1,56 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+.instrument-list-item {
+  min-height: 0px;
+  width: 400px;
+  margin: 0 auto;
+}
+.instrument-list-item-position{
+  float: right;
+}
+
+.instrument-list-item-id{
+  float: left;
+  width: 60px;
+}
+
+.center-container{
+  width: 600px;
+  margin: 0 auto;
+}
+
+.transaction-form{
+  display: inline-block;
+}
+.transaction-field{
+  float: left;
+}
+.transaction-submit{
+  float: right;
+  vertical-align: center;
+}
+#instrument-id{
+  float: left;
+}
+#instrument-position{
+  float: right;
+}
+.buy{
+  background-color: #00FF00;
+  color: white;
+}
+.sell{
+  background-color: #FF0000;
+  color: white;
+}
+.instrument-card{
+  width: 512px;
+}
